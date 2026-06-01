@@ -16,6 +16,10 @@ function aplicarDescuento(precios) {
 ========================================================================== */
 function filtrarDisponibles(productos) {
   // TU CÓDIGO AQUÍ 👇
+  const productosEnStock = productos.filter(
+    (producto) => producto.enStock === true,
+  );
+  return productosEnStock;
 }
 
 /* ==========================================================================
@@ -25,6 +29,10 @@ function filtrarDisponibles(productos) {
 ========================================================================== */
 function calcularTotal(carrito) {
   // TU CÓDIGO AQUÍ 👇
+  const total = carrito.reduce((item, acum) => {
+    return acum + item;
+  }, 0);
+  return total;
 }
 
 /* ==========================================================================
@@ -35,6 +43,8 @@ function calcularTotal(carrito) {
 ========================================================================== */
 function llamarSiguiente(salaDeEspera) {
   // TU CÓDIGO AQUÍ 👇
+  const pacienteAtendido = salaDeEspera.shift();
+  return `Atendiendo a: ${pacienteAtendido}`;
 }
 
 // 🚨 ¡NO TOCAR ESTA LÍNEA!
