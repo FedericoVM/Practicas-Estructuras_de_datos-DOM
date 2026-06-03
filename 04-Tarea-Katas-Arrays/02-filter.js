@@ -11,7 +11,7 @@
 -------------------------------------------------------------------------- */
 function soloAdultos(edades) {
   // TU CÓDIGO AQUÍ 👇
-  const mayoresEdad = edades.filter(edad => edad >= 18 );
+  const mayoresEdad = edades.filter((edad) => edad >= 18);
   return mayoresEdad;
 }
 
@@ -22,7 +22,7 @@ function soloAdultos(edades) {
 -------------------------------------------------------------------------- */
 function palabrasLargas(palabras) {
   // TU CÓDIGO AQUÍ 👇
-  const listaPalabrasLargas = palabras.filter(palabra => palabra.length > 5);
+  const listaPalabrasLargas = palabras.filter((palabra) => palabra.length > 5);
   return listaPalabrasLargas;
 }
 
@@ -33,7 +33,7 @@ function palabrasLargas(palabras) {
 -------------------------------------------------------------------------- */
 function enStock(productos) {
   // TU CÓDIGO AQUÍ 👇
-  const listaDisponibles = productos.filter(producto => producto.enStock);
+  const listaDisponibles = productos.filter((producto) => producto.enStock);
   return listaDisponibles;
 }
 
@@ -44,7 +44,7 @@ function enStock(productos) {
 -------------------------------------------------------------------------- */
 function sinNegativos(numeros) {
   // TU CÓDIGO AQUÍ 👇
-  const listaSinNegativos = numeros.filter( num => num >= 0 );
+  const listaSinNegativos = numeros.filter((num) => num >= 0);
   return listaSinNegativos;
 }
 
@@ -55,7 +55,7 @@ function sinNegativos(numeros) {
 -------------------------------------------------------------------------- */
 function emailsValidos(emails) {
   // TU CÓDIGO AQUÍ 👇
-  const listaEmailsValidos = emails.filter( email => email.includes("@") );
+  const listaEmailsValidos = emails.filter((email) => email.includes("@"));
   return listaEmailsValidos;
 }
 
@@ -66,7 +66,7 @@ function emailsValidos(emails) {
 -------------------------------------------------------------------------- */
 function solosPares(numeros) {
   // TU CÓDIGO AQUÍ 👇
-  const listaPares = numeros.filter(num => num % 2 === 0);
+  const listaPares = numeros.filter((num) => num % 2 === 0);
   return listaPares;
 }
 
@@ -77,7 +77,7 @@ function solosPares(numeros) {
 -------------------------------------------------------------------------- */
 function usuariosActivos(usuarios) {
   // TU CÓDIGO AQUÍ 👇
-  const soloActivos = usuarios.filter( usuario => usuario.activo );
+  const soloActivos = usuarios.filter((usuario) => usuario.activo);
   return soloActivos;
 }
 
@@ -89,7 +89,7 @@ function usuariosActivos(usuarios) {
 -------------------------------------------------------------------------- */
 function eliminarFalsy(arr) {
   // TU CÓDIGO AQUÍ 👇
-  const soloTruthys = arr.filter( elemento => elemento ? true : ""); 
+  const soloTruthys = arr.filter((elemento) => (elemento ? true : ""));
   return soloTruthys;
 }
 
@@ -101,7 +101,9 @@ function eliminarFalsy(arr) {
 -------------------------------------------------------------------------- */
 function filtroPrecio(precios, rango) {
   // TU CÓDIGO AQUÍ 👇
-  const listaRangos = precios.filter( precio => (precio >= rango.min && precio <= rango.min) ? precio : ""  );
+  const listaRangos = precios.filter((precio) =>
+    precio >= rango.min && precio <= rango.min ? precio : "",
+  );
   return listaRangos;
 }
 
@@ -113,7 +115,10 @@ function filtroPrecio(precios, rango) {
 -------------------------------------------------------------------------- */
 function sinDuplicados(numeros) {
   // TU CÓDIGO AQUÍ 👇
-  const listaSinDuplicados = numeros.filter( num => num.id  );
+  const listaSinDuplicados = numeros.filter((num, index, numeros) => {
+    return numeros.indexOf(num) === index;
+  });
+  return listaSinDuplicados;
 }
 
 // 🚨 ¡NO TOCAR ESTA LÍNEA!
