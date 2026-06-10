@@ -11,6 +11,11 @@
 -------------------------------------------------------------------------- */
 function sumarTotal(numeros) {
   // TU CÓDIGO AQUÍ 👇
+  const total = numeros.reduce((acum, numero) => {
+    return (acum += numero);
+  }, 0);
+
+  return total;
 }
 
 /* --------------------------------------------------------------------------
@@ -20,6 +25,11 @@ function sumarTotal(numeros) {
 -------------------------------------------------------------------------- */
 function multiplicarTodo(numeros) {
   // TU CÓDIGO AQUÍ 👇
+  const total = numeros.reduce((acum, numero) => {
+    return (acum *= numero);
+  }, 1);
+
+  return total;
 }
 
 /* --------------------------------------------------------------------------
@@ -30,6 +40,16 @@ function multiplicarTodo(numeros) {
 -------------------------------------------------------------------------- */
 function encontrarMaximo(numeros) {
   // TU CÓDIGO AQUÍ 👇
+  const valorMaximo = numeros.reduce((numMax, num, index, array) => {
+    if (index === 0) {
+      numMax = num;
+    }
+    if (num > numMax) {
+      numMax = num;
+    }
+    return numMax;
+  }, 0);
+  return valorMaximo;
 }
 
 /* --------------------------------------------------------------------------
@@ -40,6 +60,17 @@ function encontrarMaximo(numeros) {
 -------------------------------------------------------------------------- */
 function contarOcurrencias(arr) {
   // TU CÓDIGO AQUÍ 👇
+  const contadorString = arr.reduce((contador, elemento) => {
+    if (contador[elemento]) {
+      contador[elemento] += 1;
+    } else {
+      contador[elemento] = 1;
+    }
+
+    return contador;
+  }, {});
+
+  return contadorString;
 }
 
 /* --------------------------------------------------------------------------
@@ -49,6 +80,11 @@ function contarOcurrencias(arr) {
 -------------------------------------------------------------------------- */
 function aplanar(arrayDeArrays) {
   // TU CÓDIGO AQUÍ 👇
+  const arrayPlano = arrayDeArrays.reduce((acum, array) => {
+    return acum.concat(array);
+  }, []);
+
+  return arrayPlano;
 }
 
 /* --------------------------------------------------------------------------
@@ -59,6 +95,11 @@ function aplanar(arrayDeArrays) {
 -------------------------------------------------------------------------- */
 function totalCarrito(items) {
   // TU CÓDIGO AQUÍ 👇
+  const total = items.reduce((acum, elemento) => {
+    return acum + elemento.cantidad * elemento.precio;
+  }, 0);
+
+  return total;
 }
 
 /* --------------------------------------------------------------------------
@@ -70,6 +111,19 @@ function totalCarrito(items) {
 -------------------------------------------------------------------------- */
 function agruparPorCategoria(productos) {
   // TU CÓDIGO AQUÍ 👇
+  const nuevoObjeto = productos.reduce((acum, element) => {
+    let clave = element.categoria;
+    let valor = element.nombre;
+
+    if (!acum[clave]) {
+      acum[clave] = [];
+    }
+    acum[clave].push(valor);
+
+    return acum;
+  }, {});
+
+  return nuevoObjeto;
 }
 
 /* --------------------------------------------------------------------------
@@ -80,6 +134,13 @@ function agruparPorCategoria(productos) {
 -------------------------------------------------------------------------- */
 function promedio(numeros) {
   // TU CÓDIGO AQUÍ 👇
+  let sumaNotas = 0;
+  const promedio = numeros.reduce((acum, elemento) => {
+    sumaNotas += elemento;
+    return (acum = sumaNotas / numeros.length);
+  }, 0);
+
+  return Math.round(promedio * 100) / 100;
 }
 
 /* --------------------------------------------------------------------------
@@ -90,6 +151,15 @@ function promedio(numeros) {
 -------------------------------------------------------------------------- */
 function construirOracion(palabras) {
   // TU CÓDIGO AQUÍ 👇
+  const stringArray = palabras.reduce((acum, elemento, index) => {
+    if (index === 0) {
+      acum += `${elemento}`;
+    } else {
+      acum += ` ${elemento}`;
+    }
+    return acum;
+  }, "");
+  return stringArray;
 }
 
 /* --------------------------------------------------------------------------
@@ -100,6 +170,20 @@ function construirOracion(palabras) {
 -------------------------------------------------------------------------- */
 function calcularBalance(transacciones) {
   // TU CÓDIGO AQUÍ 👇
+  const montoFinal = transacciones.reduce((acum, elemento) => {
+    const tipo = elemento.tipo;
+    const monto = elemento.monto;
+
+    if (tipo === "ingreso") {
+      acum += monto;
+    } else if (tipo === "egreso") {
+      acum -= monto;
+    }
+
+    return acum;
+  }, 0);
+
+  return montoFinal;
 }
 
 // 🚨 ¡NO TOCAR ESTA LÍNEA!
